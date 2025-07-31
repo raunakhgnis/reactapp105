@@ -1,0 +1,523 @@
+                              CI/CD & Cloud DevOps
+                        -------------------------------
+
+Module-1: GIT
+Module-2: Jenkins
+Module-3: Docker
+Module-4: Kubernetes
+----------------------------------------------------------------------------------------------------
+
+    SDC-1                                                       SDC-2
+-------------                                           --------------------
+Web App (Build)                                      Web Application(Deploy)
+      - FE + BE                                            -(url+domain)
+
+M-1: HTML, CSS, JS, Bootstrap                        Module-1: GIT                                                                                                M-2: React                                           Module-2: Jenkins
+M-3: Spring Boot                                     Module-3: Docker
+M-4: Build and Deploy                                Module-4: Kubernetes
+
+
+Cloud DevOps
+-------------
+- DevOps is set of tools/practices which will be helpful to bridge the gap between Dev Team & Ops team.
+
+
+                                      Web Application
+                           
+                           Build          +         Deploy
+                      (Development)                (Operations)
+                          Dev                         Ops
+
+   - The goal of DevOps is to deliver the software
+        1. Faster
+        2. Reliable
+        3. Collaboration   etc
+
+   - Key Principles of DevOps
+        1. Automation
+        2. Collaboration
+        3. CI/CD
+
+ Note: Cloud DevOps
+        - DevOps within Cloud Environment is known as Cloud DevOps (AWS, AZURE, GCP etc)
+ ---------------------------------------------------------------------------------------------
+
+CI/CD
+    - Continuous integration and Continuous Delivery (Deployment)
+
+    - It is one of the key principle of Cloud DevOps/ It is one of the best practice of Cloud     
+      DevOps used in Software Development to automate & simulate the process of integration (code 
+      changes) & delivering to user
+
+
+  CI 
+    - Developers frequently push the code to shared Repository
+  
+  CD 
+    - Developers frequently deliver the code to user/client
+---------------------------------------------------------------------------------------------------
+
+
+                                      MODULE-1
+                               -----------------------
+                                       GIT
+                          ---------------------------------
+
+- Introduction to Version Controlled System & GIT
+- GIT Installation (Local)
+- GITHUB Account Creation (Remote)
+- GIT Config with GITHUB
+- Getting Started with GIT / GIT Basics
+- Working with Branches
+- Remote Repository
+- Collaboration Workflow
+- GIT Tools
+
+
+
+Introduction to VCS & GIT
+--------------------------
+
+- VCS stand for Version Controlled System
+- It records changes to files (especially code changes) over the time so that you can 
+
+    1. Track the earlier files / versions
+    2. Who made what changes 
+    3. Collaboration within the team on the same code bases 
+
+
+  Ex: It looks like "time machine"
+  
+       "file_1"    "file_2"      "file_final"
+
+
+    VCS -> Will keep track of all these files / version.
+
+  - Types of VCS
+      
+       There are three types of VCS:
+          1. Local VCS
+          2. Central VCS
+          3. Distributed VCS
+
+
+          1. Local VCS
+                    - Working on GIT without remote.
+  
+          2. Central VCS
+                    - Working on Server (where the code reside on server)
+     
+          3. Distributed 
+                    - Working on GIT Remotely
+
+
+GIT
+----
+  - GIT is a distributed VCS which is primarily used to track the code changes in the software   
+    development process
+
+  - It allow multipole to work on same project simultaneously without the individual changes
+
+
+
+
+
+GIT Installation
+-----------------
+- GIT Download (.exe)
+     - GIT Installation
+
+- Check
+     cmd ->   git --version   (or) git -v
+
+ 
+GITHUB Account Creation
+------------------------
+ - GITHUB Account Creation
+       - Signup
+           - Sign In 
+
+
+GIT(Local) configuration with GITHUB(Remote)
+---------------------------------------------
+ - THE GIT configuration with GITHUB is as follows
+
+   CMD: 
+         Configuration:
+         git config --global user.name "2300030215@kluniversity.in"
+         git config --global user.password "password"
+
+         
+         git config --list
+
+         git config --global --unset user.name
+         git config --global --unset user.password
+
+
+
+
+  -  GIT Basics / Getting Started with GIT
+------------------------------------------
+1. Create Repository.
+   Step 1: 
+          1. Create  remote repository (global)
+          2. Create  local repository (local)
+                 - Create Files
+                     a. Manual 
+                            sample.html.txt
+                     b. CMD
+                           echo "HI GIT" >>abc.txt
+
+            Notes: Files -> Untracked Files
+          
+ 
+   Step 2: GIT Initialization 
+   
+         - We need to make untracked files to tracked by GIT
+         - CMD:
+               git init
+
+ 
+ 2. Staging Area 
+     - Temporary space to hold all the changes made before commits (save)
+
+     - CMD 
+            git add abc.txt (single file)
+            git add . (multiple files)
+     Note: Files -> Tracked Files
+
+3. commit 
+       - To commit (save) the changes made at staged area
+
+       - CMD : 
+                git commit -m "first commit"
+
+4. Create branch
+          - We need to create branch in order to add files into it
+          - CMD: 
+                 git branch -M main
+
+5. Remote Repository to Local Repository
+     - We need to assign Remote Repository to local Repository
+ 
+     - CMD
+          git remote add origin https://github.com/golukumarkluniversity/S104.git
+
+
+6. Push
+   
+    - We need to push all the files to remote repository (global) from local repository
+    - CMD: 
+            git push -u origin main
+
+ Note: create xyz.txt (cmd) and push the same to remote repository
+
+
+
+Note: 
+    - The above helps you to move all the files from Local Repository to Global Repository (Remote)
+
+
+
+7. GIT History
+       - GIT keep a detailed record of every change you made in project. The details which was 
+         maintained will be known using the command history.
+
+        a. git log
+              - It shows full commits history
+              - CMD: 
+                      git log
+
+       b. log --oneline 
+               - It shows summary of commits
+               - CMD: 
+                     git log --oneline 
+   
+       c. show 
+             - It shows the specific commit in detail 
+             - CMD: 
+                    git show <commit-id>
+
+
+       d. diff 
+              - It shows the text/file which is unstaged
+              - CMD: 
+                     git diff
+ 
+       e. diff --staged
+               - It shows the text/file which is unstaged
+               - CMD: 
+                     git diff --staged
+
+
+       Note: 
+           1. Compare 2 commits
+                 CMD: 
+                      git diff <commit-id1> <commit-id2> 
+
+           2. Show commits by author
+               CMD: 
+                    git log --author="golukumarkluniversity"
+
+          3. Show recent commits
+               CMD: 
+                    git log --since="2 weeks ago"
+ 
+
+ 8. Help
+                - This command helps you learn about specific command or to check if you 
+                   forget specific command 
+         
+                - CMD: It displays git manual or git documents
+                       git help <command>
+                       git help push
+                                                          
+                                  (or)
+
+                       git <command> --help
+                       git push  --help
+
+                - To display quick summary of options under specific command
+                   CMD:
+                        git <command> -h
+ 
+                - To display all GIT commands
+                       git help -all
+ 
+                - To display the complete guide
+                       git help -g
+ 
+ 
+9. Status 
+         - To know the status of current working directory (local repository) & staged area 
+         - CMD: 
+                git status
+
+
+10. Revert
+         - It reverts (undo) the commits you made earlier
+         - CMD: 
+               git revert <commit-id>
+ 
+                  
+                     
+11. Remove 
+        - To remove files from current working directory / local repository
+
+        - CMD:
+               git rm xyz.txt
+
+
+12. Tagging 
+        - A tag is a label or bookmark for a specific commit
+      
+        - Tag are used to mark important changes in our projects like V1.0, V2.0, V3.0....
+    
+        - Tags are of two types
+              a. Lighweight tag
+              b. Annotated tag
+              
+  
+      a. Lightweight Tag: It just a simple tag name for a specific commit
+           
+            CMD: 
+                 git tag <tagname>
+                 git tag V1.0
+
+
+      b. Annotated Tag: It is a tag which stores name, date and messages 
+
+             CMD:
+                  git tag -a <tagname> -m "message"
+                  git tag -a V1.0 -m "It is Version-1"
+                  
+ 
+     Note:  
+          1. To list all the tags 
+              CMD: 
+                    git tag
+
+          2. To show tag details
+               CMD: 
+                    git show <tagname>
+                    git show V1.0
+
+
+6. Working with Branches 
+
+      - In GIT, a branch is a separate workplace where you can make changes without main 
+        branch.
+ 
+      - Why Branch
+             - Adding new features
+             - Experimenting new ideas
+            
+   1. Create Branch
+        -
+        - CMD:
+              git branch <branch-name>
+              
+              git branch first
+
+  2. List of branches
+         - To check the list of branches 
+         - CMD:
+                git branch
+
+  3. Switching between branches 
+        - You switch from one branch to another branch
+        - CMD:
+              git checkout <branch-name>
+              git checkout first
+
+    Note: Creating branch and switch to the same while creating
+
+              git checkout -b <branchname>
+              git checkout -b third
+ 
+
+ 4. Adding Files to Branch
+       
+       a. create file
+             echo "Working on branches" >> b.txt
+
+       b. Staging Area
+             git add .
+  
+       c. Commit
+             git commit -m "fourth commit"
+  
+       d. tag
+             git tag V2.0
+
+       e. push
+             git push -u origin third
+
+5. Merge Branch
+        - To merge the branches
+
+      Step 1: Initially we need to be in the branch where other branches will merged into
+               it.
+
+      CMD: 
+              git checkout main
+ 
+      Step 2: Now we can merge the branch
+             CMD:
+                  git merge <branch-name>
+                  git merge third
+
+                  git push -u origin main
+
+
+6. Deleting Branches
+        - To delete the branches we created
+  
+        - It can be done for both local and remote repositories 
+ 
+          a. To delete branch from local repository
+             CMD:
+                  git branch -d <branch-name>
+                  git branch -d third 
+
+         b. To delete branch from remote repository
+             CMD:
+                  git push origin --delete <branch-name>
+                  git push origin --delete third
+
+
+8. Collaboration Workflow
+        - Git collaboration refers to process when multiple developers work on the same 
+           project using git.
+
+        - Key elements of collaboration
+            1. 
+
+            2.
+     
+            3.
+         
+            4.
+
+        - Working process / Workflow 
+                      (Assuming 2 users) ()
+
+           Step-1: Invitation (1st User)
+                      - Settings 
+                          - collaborators
+                             - manage access
+                             - Add user
+                                     (username - 2nd user)
+ 
+           Step-2: Accept (2nd User)
+                       - Mail
+                          - Accept
+       
+           
+           Step-3: Clone the Repository
+                    CMD:
+                            
+                      Desktop> git clone https://www.github.com/golukumarkluniversity/S104
+
+ 
+           Step-4:
+                   Push new file (2nd User)
+
+                     a. create file 
+                           echo "Collboration" >>c.txt
+
+                
+                     b. Staged Area
+                           git add .
+ 
+
+                     c. commit 
+                           git commit -m "fifth commit"
+
+
+                     d. tag
+                           git tag V3.0
+
+              
+                     e. Branch
+                           git branch -M main
+  
+                     
+                     f. local repository to remote repository
+                           git remote add origin https://github.com/golukumarkluniversity/S104.git  
+                            
+                     g. Push
+                           git push -u origin main
+
+
+
+   Note: 1. When changes are made by 2nd user, until and unless you pull the same into your local 
+            repository you can't do operation on the remote repository
+
+             CMD:
+                  S104> git pull
+
+
+  Practice: 1st user has to pull the operation and 2nd user has to push the operation. 
+
+
+
+     2. Pull operation in git can also be implemented as 
+         
+
+              pull  -> fetch + merge
+
+          
+            CMD:
+                 git fetch origin
+                 git merge origin main
+                 
+
+
+   Scenario: 
+
+
+
+
+
+
